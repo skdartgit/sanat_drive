@@ -1,6 +1,7 @@
 package com.sanat.drive
 import android.widget.FrameLayout
 
+import android.widget.ScrollView
 import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -228,6 +229,12 @@ class MainActivity : Activity() {
             setPadding(dp(16), dp(16), dp(16), dp(16))
             setBackgroundColor(ivory)
         }
+        val scrollView = ScrollView(this).apply {
+            isFillViewport = true
+            isVerticalScrollBarEnabled = true
+        }
+        
+        scrollView.addView(content)
 
         drawer = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
@@ -277,7 +284,7 @@ class MainActivity : Activity() {
         }
 
         shell.addView(
-            content,
+            scrollView,
             FrameLayout.LayoutParams(
                 -1,
                 -1
