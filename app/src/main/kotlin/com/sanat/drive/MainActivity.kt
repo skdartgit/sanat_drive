@@ -1,4 +1,5 @@
 package com.sanat.drive
+import android.widget.FrameLayout
 
 import android.app.Activity
 import android.content.ClipData
@@ -387,7 +388,7 @@ class MainActivity : Activity() {
                 text = note.title
                 textSize = 16f
                 typeface = Typeface.DEFAULT_BOLD
-                setTextColor(text)
+                setTextColor(this@MainActivity.text)
                 gravity = Gravity.CENTER_VERTICAL
                 setPadding(dp(10), 0, 0, 0)
             }
@@ -412,7 +413,7 @@ class MainActivity : Activity() {
             val details = TextView(this).apply {
                 text = fromHtml(note.html)
                 textSize = 15f
-                setTextColor(text)
+                setTextColor(this@MainActivity.text)
                 setPadding(dp(18), dp(12), dp(18), dp(16))
                 visibility = View.GONE
                 background = rounded(white, border, 14)
@@ -560,7 +561,7 @@ class MainActivity : Activity() {
                 text = asset.name
                 textSize = 16f
                 typeface = Typeface.DEFAULT_BOLD
-                setTextColor(text)
+                setTextColor(this@MainActivity.text)
             }
 
             val amount = TextView(this).apply {
@@ -689,7 +690,7 @@ class MainActivity : Activity() {
         val tv = TextView(this).apply {
             text = "$title: $data"
             textSize = 14f
-            setTextColor(text)
+            setTextColor(this@MainActivity.text)
             setPadding(0, dp(5), 0, dp(5))
         }
 
@@ -919,7 +920,7 @@ class MainActivity : Activity() {
             val name = TextView(this).apply {
                 text = "${asset.name}\n${asset.category}"
                 textSize = 15f
-                setTextColor(text)
+                setTextColor(this@MainActivity.text)
                 gravity = Gravity.CENTER_VERTICAL
             }
 
@@ -1410,7 +1411,7 @@ class MainActivity : Activity() {
                         }"
                     textSize = 15f
                     typeface = Typeface.DEFAULT_BOLD
-                    setTextColor(text)
+                    setTextColor(this@MainActivity.text)
                 }
 
                 val buttons = LinearLayout(this).apply {
@@ -1645,7 +1646,7 @@ class MainActivity : Activity() {
         EditText(this).apply {
             hint = hintText
             textSize = 15f
-            singleLine = true
+            setSingleLine(true)
             setPadding(dp(12), 0, dp(12), 0)
             background = rounded(white, border, 12)
 
@@ -1687,7 +1688,7 @@ class MainActivity : Activity() {
             text = value
             textSize = 17f
             typeface = Typeface.DEFAULT_BOLD
-            setTextColor(text)
+            setTextColor(this@MainActivity.text)
         }
 
     private fun small(value: String): TextView =
